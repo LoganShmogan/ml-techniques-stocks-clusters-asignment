@@ -67,6 +67,6 @@ plt.legend()
 plt.show()
 
 # R2 Score
-#y_true = []
-#y_pred = []
-#r2_score(y_true, y_pred)
+y_true = []
+y_pred = []
+r2_score(y_true, y_pred)
