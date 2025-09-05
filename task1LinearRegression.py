@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
 
 # Get stock data
 ticker = yf.Ticker("AAPL")  # you can pick another stock, e.g. "MSFT"
@@ -54,3 +55,18 @@ model.fit(X_train, y_train)
 # Print model
 print("Intercept:", model.intercept_)
 print("Coefficients:", model.coef_)
+
+y_pred = model.predict(X_test)
+
+plt.scatter(y_test, y_pred)
+plt.xlabel("Actual Values")
+plt.ylabel("Predicted Values")
+plt.title("Actual vs. Predicted Values")
+plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], color='red', linestyle='--', label='Perfect Fit')
+plt.legend()
+plt.show()
+
+# R2 Score
+#y_true = []
+#y_pred = []
+#r2_score(y_true, y_pred)
