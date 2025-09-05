@@ -2,13 +2,10 @@ import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
 
-ticker = yf.Ticker("AAPL")
-df = ticker.history(period="5y")
-print(df.head())
-
 # Get stock data
 ticker = yf.Ticker("AAPL")  # you can pick another stock, e.g. "MSFT"
 df = ticker.history(period="5y")
+print(df.head())
 
 # Define Features (X) and Target (y)
 X = df[["Open", "High", "Low", "Volume"]]
@@ -27,7 +24,7 @@ plt.ylabel("Close Price")
 plt.title("Scatter Plot: Open vs Close (AAPL)")
 plt.show()
 
-# Combine X and y into one DataFrame for correlation
+# Combine X and y into one DataFrame
 corr = df[["Open", "High", "Low", "Volume", "Close"]].corr()
 
 print("Correlation matrix:")
