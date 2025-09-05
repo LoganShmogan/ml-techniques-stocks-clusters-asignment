@@ -2,6 +2,7 @@ import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
 
 # Get stock data
 ticker = yf.Ticker("AAPL")  # you can pick another stock, e.g. "MSFT"
@@ -42,3 +43,14 @@ print("Training target shape:", y_train.shape)
 print("Testing target shape:", y_test.shape)
 
 
+# Multivariate linear regression model on training data
+
+# Model Creation
+model = LinearRegression()
+
+# fit model to training data
+model.fit(X_train, y_train)
+
+# Print model
+print("Intercept:", model.intercept_)
+print("Coefficients:", model.coef_)
